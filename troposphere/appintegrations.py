@@ -1,4 +1,4 @@
-# Copyright (c) 2012-2022, Mark Peek <mark@peek.org>
+# Copyright (c) 2012-2024, Mark Peek <mark@peek.org>
 # All rights reserved.
 #
 # See LICENSE file for full license.
@@ -16,7 +16,7 @@ class ExternalUrlConfig(AWSProperty):
 
     props: PropsDictType = {
         "AccessUrl": (str, True),
-        "ApprovedOrigins": ([str], True),
+        "ApprovedOrigins": ([str], False),
     }
 
 
@@ -42,6 +42,7 @@ class Application(AWSObject):
         "Description": (str, True),
         "Name": (str, True),
         "Namespace": (str, False),
+        "Permissions": ([str], False),
         "Tags": (Tags, False),
     }
 

@@ -1,4 +1,4 @@
-# Copyright (c) 2012-2022, Mark Peek <mark@peek.org>
+# Copyright (c) 2012-2024, Mark Peek <mark@peek.org>
 # All rights reserved.
 #
 # See LICENSE file for full license.
@@ -501,6 +501,16 @@ class SendNotificationAction(AWSProperty):
     }
 
 
+class SubmitAutoEvaluationAction(AWSProperty):
+    """
+    `SubmitAutoEvaluationAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-submitautoevaluationaction.html>`__
+    """
+
+    props: PropsDictType = {
+        "EvaluationFormArn": (str, True),
+    }
+
+
 class Reference(AWSProperty):
     """
     `Reference <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-reference.html>`__
@@ -546,6 +556,7 @@ class Actions(AWSProperty):
         "EndAssociatedTasksActions": (Tags, False),
         "EventBridgeActions": ([EventBridgeAction], False),
         "SendNotificationActions": ([SendNotificationAction], False),
+        "SubmitAutoEvaluationActions": ([SubmitAutoEvaluationAction], False),
         "TaskActions": ([TaskAction], False),
         "UpdateCaseActions": ([UpdateCaseAction], False),
     }

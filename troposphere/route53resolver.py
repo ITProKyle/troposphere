@@ -1,4 +1,4 @@
-# Copyright (c) 2012-2022, Mark Peek <mark@peek.org>
+# Copyright (c) 2012-2024, Mark Peek <mark@peek.org>
 # All rights reserved.
 #
 # See LICENSE file for full license.
@@ -38,6 +38,7 @@ class FirewallRule(AWSProperty):
         "BlockOverrideTtl": (integer, False),
         "BlockResponse": (str, False),
         "FirewallDomainListId": (str, True),
+        "FirewallDomainRedirectionAction": (str, False),
         "Priority": (integer, True),
         "Qtype": (str, False),
     }

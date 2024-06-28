@@ -1,4 +1,4 @@
-# Copyright (c) 2012-2022, Mark Peek <mark@peek.org>
+# Copyright (c) 2012-2024, Mark Peek <mark@peek.org>
 # All rights reserved.
 #
 # See LICENSE file for full license.
@@ -582,6 +582,32 @@ class StepAdjustments(AWSProperty):
     }
 
 
+class TargetTrackingMetricStat(AWSProperty):
+    """
+    `TargetTrackingMetricStat <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-targettrackingmetricstat.html>`__
+    """
+
+    props: PropsDictType = {
+        "Metric": (Metric, True),
+        "Stat": (str, True),
+        "Unit": (str, False),
+    }
+
+
+class TargetTrackingMetricDataQuery(AWSProperty):
+    """
+    `TargetTrackingMetricDataQuery <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-targettrackingmetricdataquery.html>`__
+    """
+
+    props: PropsDictType = {
+        "Expression": (str, False),
+        "Id": (str, True),
+        "Label": (str, False),
+        "MetricStat": (TargetTrackingMetricStat, False),
+        "ReturnData": (boolean, False),
+    }
+
+
 class CustomizedMetricSpecification(AWSProperty):
     """
     `CustomizedMetricSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-customizedmetricspecification.html>`__
@@ -589,9 +615,10 @@ class CustomizedMetricSpecification(AWSProperty):
 
     props: PropsDictType = {
         "Dimensions": ([MetricDimension], False),
-        "MetricName": (str, True),
-        "Namespace": (str, True),
-        "Statistic": (str, True),
+        "MetricName": (str, False),
+        "Metrics": ([TargetTrackingMetricDataQuery], False),
+        "Namespace": (str, False),
+        "Statistic": (str, False),
         "Unit": (str, False),
     }
 

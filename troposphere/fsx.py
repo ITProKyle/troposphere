@@ -1,4 +1,4 @@
-# Copyright (c) 2012-2022, Mark Peek <mark@peek.org>
+# Copyright (c) 2012-2024, Mark Peek <mark@peek.org>
 # All rights reserved.
 #
 # See LICENSE file for full license.
@@ -65,6 +65,17 @@ class DataRepositoryAssociation(AWSObject):
     }
 
 
+class MetadataConfiguration(AWSProperty):
+    """
+    `MetadataConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-lustreconfiguration-metadataconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "Iops": (integer, False),
+        "Mode": (str, False),
+    }
+
+
 class LustreConfiguration(AWSProperty):
     """
     `LustreConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-lustreconfiguration.html>`__
@@ -81,6 +92,7 @@ class LustreConfiguration(AWSProperty):
         "ExportPath": (str, False),
         "ImportPath": (str, False),
         "ImportedFileChunkSize": (integer, False),
+        "MetadataConfiguration": (MetadataConfiguration, False),
         "PerUnitStorageThroughput": (
             validate_lustreconfiguration_perunitstoragethroughput,
             False,

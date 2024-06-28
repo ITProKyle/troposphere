@@ -1,4 +1,4 @@
-# Copyright (c) 2012-2022, Mark Peek <mark@peek.org>
+# Copyright (c) 2012-2024, Mark Peek <mark@peek.org>
 # All rights reserved.
 #
 # See LICENSE file for full license.
@@ -81,6 +81,60 @@ class IdMappingWorkflow(AWSObject):
         "RoleArn": (str, True),
         "Tags": (Tags, False),
         "WorkflowName": (str, True),
+    }
+
+
+class NamespaceProviderProperties(AWSProperty):
+    """
+    `NamespaceProviderProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-idnamespace-namespaceproviderproperties.html>`__
+    """
+
+    props: PropsDictType = {
+        "ProviderConfiguration": (dict, False),
+        "ProviderServiceArn": (str, True),
+    }
+
+
+class IdNamespaceIdMappingWorkflowProperties(AWSProperty):
+    """
+    `IdNamespaceIdMappingWorkflowProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-idnamespace-idnamespaceidmappingworkflowproperties.html>`__
+    """
+
+    props: PropsDictType = {
+        "IdMappingType": (str, True),
+        "ProviderProperties": (NamespaceProviderProperties, False),
+    }
+
+
+class IdNamespaceInputSource(AWSProperty):
+    """
+    `IdNamespaceInputSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-idnamespace-idnamespaceinputsource.html>`__
+    """
+
+    props: PropsDictType = {
+        "InputSourceARN": (str, True),
+        "SchemaName": (str, False),
+    }
+
+
+class IdNamespace(AWSObject):
+    """
+    `IdNamespace <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-entityresolution-idnamespace.html>`__
+    """
+
+    resource_type = "AWS::EntityResolution::IdNamespace"
+
+    props: PropsDictType = {
+        "Description": (str, False),
+        "IdMappingWorkflowProperties": (
+            [IdNamespaceIdMappingWorkflowProperties],
+            False,
+        ),
+        "IdNamespaceName": (str, True),
+        "InputSourceConfig": ([IdNamespaceInputSource], False),
+        "RoleArn": (str, False),
+        "Tags": (Tags, False),
+        "Type": (str, True),
     }
 
 
@@ -169,6 +223,23 @@ class MatchingWorkflow(AWSObject):
         "RoleArn": (str, True),
         "Tags": (Tags, False),
         "WorkflowName": (str, True),
+    }
+
+
+class PolicyStatement(AWSObject):
+    """
+    `PolicyStatement <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-entityresolution-policystatement.html>`__
+    """
+
+    resource_type = "AWS::EntityResolution::PolicyStatement"
+
+    props: PropsDictType = {
+        "Action": ([str], False),
+        "Arn": (str, True),
+        "Condition": (str, False),
+        "Effect": (str, False),
+        "Principal": ([str], False),
+        "StatementId": (str, True),
     }
 
 

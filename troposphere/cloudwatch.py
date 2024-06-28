@@ -1,4 +1,4 @@
-# Copyright (c) 2012-2022, Mark Peek <mark@peek.org>
+# Copyright (c) 2012-2024, Mark Peek <mark@peek.org>
 # All rights reserved.
 #
 # See LICENSE file for full license.
@@ -94,6 +94,7 @@ class Alarm(AWSObject):
         "OKActions": ([str], False),
         "Period": (integer, False),
         "Statistic": (str, False),
+        "Tags": (Tags, False),
         "Threshold": (double, False),
         "ThresholdMetricId": (str, False),
         "TreatMissingData": (validate_treat_missing_data, False),
@@ -123,6 +124,16 @@ class Configuration(AWSProperty):
     props: PropsDictType = {
         "ExcludedTimeRanges": ([Range], False),
         "MetricTimeZone": (str, False),
+    }
+
+
+class MetricCharacteristics(AWSProperty):
+    """
+    `MetricCharacteristics <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-anomalydetector-metriccharacteristics.html>`__
+    """
+
+    props: PropsDictType = {
+        "PeriodicSpikes": (boolean, False),
     }
 
 
@@ -160,6 +171,7 @@ class AnomalyDetector(AWSObject):
     props: PropsDictType = {
         "Configuration": (Configuration, False),
         "Dimensions": ([MetricDimension], False),
+        "MetricCharacteristics": (MetricCharacteristics, False),
         "MetricMathAnomalyDetector": (MetricMathAnomalyDetector, False),
         "MetricName": (str, False),
         "Namespace": (str, False),
@@ -186,6 +198,7 @@ class CompositeAlarm(AWSObject):
         "AlarmRule": (str, True),
         "InsufficientDataActions": ([str], False),
         "OKActions": ([str], False),
+        "Tags": (Tags, False),
     }
 
 

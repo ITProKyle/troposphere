@@ -1,4 +1,4 @@
-# Copyright (c) 2012-2022, Mark Peek <mark@peek.org>
+# Copyright (c) 2012-2024, Mark Peek <mark@peek.org>
 # All rights reserved.
 #
 # See LICENSE file for full license.
@@ -603,7 +603,6 @@ class ReplicationConfig(AWSObject):
 
     props: PropsDictType = {
         "ComputeConfig": (ComputeConfig, False),
-        "ReplicationConfigArn": (str, False),
         "ReplicationConfigIdentifier": (str, False),
         "ReplicationSettings": (dict, False),
         "ReplicationType": (str, False),

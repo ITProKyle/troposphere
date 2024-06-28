@@ -1,4 +1,4 @@
-# Copyright (c) 2012-2022, Mark Peek <mark@peek.org>
+# Copyright (c) 2012-2024, Mark Peek <mark@peek.org>
 # All rights reserved.
 #
 # See LICENSE file for full license.
@@ -226,6 +226,7 @@ class JdbcTarget(AWSProperty):
 
     props: PropsDictType = {
         "ConnectionName": (str, False),
+        "EnableAdditionalMetadata": ([str], False),
         "Exclusions": ([str], False),
         "Path": (str, False),
     }
@@ -547,6 +548,7 @@ class Job(AWSObject):
         "ExecutionProperty": (ExecutionProperty, False),
         "GlueVersion": (str, False),
         "LogUri": (str, False),
+        "MaintenanceWindow": (str, False),
         "MaxCapacity": (double, False),
         "MaxRetries": (double, False),
         "Name": (str, False),

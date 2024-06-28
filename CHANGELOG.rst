@@ -1,3 +1,39 @@
+4.8.1 (2024*06*28)
+-------------------------------
+* Update copyright year in generated files
+* Update black and isort
+* Updates from spec version 172.0.0 (#2241)
+* Updates from spec version 173.0.0 (#2242)
+* Updates from spec version 174.0.0 (#2243)
+* Updates from spec version 175.0.0 (#2244)
+* Add support for GitLab sources in CodeBuild projects (#2246)
+* Add SnapStart to Serverless Function (#2248)
+* Add setuptools as a dev requirement
+* Updates from spec version 176.0.0 (#2249)
+* Update glue ConnectionType validatorto allow SNOWFLAKE (#2247)
+* Updates from spec version 177.0.0 (#2250)
+* Updates from spec version 178.0.0 (#2251)
+* Add LoggingConfig to Serverless::Function (#2253)
+* Updates from spec version 179.0.0 (#2254)
+* Updates from spec version 180.0.0 (#2255)
+
+4.8.0 (2024*04*29)
+-------------------------------
+* Updates from spec version 165.0.0 (#2230)
+* Updates from spec version 166.0.0
+* Updates from spec version 167.0.0
+* Updates from spec version 167.1.0
+* Add syn-nodejs-puppeteer-7.0 as valid Synthetics::Canary runtime (#2234)
+* DLM::LifecyclePolicy CreateRule.Interval: allow 1 as a valid interval (#2238)
+* Add FilterCriteria to Serverless KinesisEvent (#2235)
+* Fix Serverless MQEvent SourceAccessConfigurations property type (#2236)
+* Updates from spec version 168.0.0
+* Updates from spec version 169.0.0
+* Updates from spec version 170.0.0
+* Updates from spec version 171.0.0 (#2240)
+* Update copyright year for generated files
+* Add new AWS resources
+
 4.7.0 (2024*03*10)
 -------------------------------
 * Breaking change: AppConfig::Environment.Monitors was renamed to AppConfig::Environment.Monitor

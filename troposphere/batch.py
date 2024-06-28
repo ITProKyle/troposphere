@@ -1,4 +1,4 @@
-# Copyright (c) 2012-2022, Mark Peek <mark@peek.org>
+# Copyright (c) 2012-2024, Mark Peek <mark@peek.org>
 # All rights reserved.
 #
 # See LICENSE file for full license.
@@ -444,6 +444,7 @@ class EksContainerSecurityContext(AWSProperty):
     """
 
     props: PropsDictType = {
+        "AllowPrivilegeEscalation": (boolean, False),
         "Privileged": (boolean, False),
         "ReadOnlyRootFilesystem": (boolean, False),
         "RunAsGroup": (integer, False),
@@ -527,6 +528,16 @@ class EksVolume(AWSProperty):
     }
 
 
+class ImagePullSecret(AWSProperty):
+    """
+    `ImagePullSecret <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-imagepullsecret.html>`__
+    """
+
+    props: PropsDictType = {
+        "Name": (str, True),
+    }
+
+
 class Metadata(AWSProperty):
     """
     `Metadata <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-podproperties-metadata.html>`__
@@ -546,6 +557,7 @@ class PodProperties(AWSProperty):
         "Containers": ([EksContainer], False),
         "DnsPolicy": (str, False),
         "HostNetwork": (boolean, False),
+        "ImagePullSecrets": ([ImagePullSecret], False),
         "InitContainers": ([EksContainer], False),
         "Metadata": (Metadata, False),
         "ServiceAccountName": (str, False),

@@ -1,4 +1,4 @@
-# Copyright (c) 2012-2022, Mark Peek <mark@peek.org>
+# Copyright (c) 2012-2024, Mark Peek <mark@peek.org>
 # All rights reserved.
 #
 # See LICENSE file for full license.
@@ -42,6 +42,6 @@ class ZonalAutoshiftConfiguration(AWSObject):
 
     props: PropsDictType = {
         "PracticeRunConfiguration": (PracticeRunConfiguration, False),
-        "ResourceIdentifier": (str, False),
+        "ResourceIdentifier": (str, True),
         "ZonalAutoshiftStatus": (str, False),
     }

@@ -1,4 +1,4 @@
-# Copyright (c) 2012-2022, Mark Peek <mark@peek.org>
+# Copyright (c) 2012-2024, Mark Peek <mark@peek.org>
 # All rights reserved.
 #
 # See LICENSE file for full license.
@@ -8,6 +8,18 @@
 
 from . import AWSObject, AWSProperty, PropsDictType, Tags
 from .validators import boolean, integer
+
+
+class SnapshotCopyConfiguration(AWSProperty):
+    """
+    `SnapshotCopyConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshiftserverless-namespace-snapshotcopyconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "DestinationKmsKeyId": (str, False),
+        "DestinationRegion": (str, True),
+        "SnapshotRetentionPeriod": (integer, False),
+    }
 
 
 class Namespace(AWSObject):
@@ -32,6 +44,7 @@ class Namespace(AWSObject):
         "NamespaceName": (str, True),
         "NamespaceResourcePolicy": (dict, False),
         "RedshiftIdcApplicationArn": (str, False),
+        "SnapshotCopyConfigurations": ([SnapshotCopyConfiguration], False),
         "Tags": (Tags, False),
     }
 
