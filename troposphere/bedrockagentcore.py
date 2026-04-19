@@ -10,6 +10,20 @@ from . import AWSObject, AWSProperty, PropsDictType, Tags
 from .validators import boolean, double, integer
 
 
+class ApiKeyCredentialProvider(AWSObject):
+    """
+    `ApiKeyCredentialProvider <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-apikeycredentialprovider.html>`__
+    """
+
+    resource_type = "AWS::BedrockAgentCore::ApiKeyCredentialProvider"
+
+    props: PropsDictType = {
+        "ApiKey": (str, False),
+        "Name": (str, True),
+        "Tags": (Tags, False),
+    }
+
+
 class VpcConfig(AWSProperty):
     """
     `VpcConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-runtime-vpcconfig.html>`__
@@ -124,6 +138,27 @@ class CodeInterpreterCustom(AWSObject):
     }
 
 
+class LambdaEvaluatorConfig(AWSProperty):
+    """
+    `LambdaEvaluatorConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-evaluator-lambdaevaluatorconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "LambdaArn": (str, True),
+        "LambdaTimeoutInSeconds": (integer, False),
+    }
+
+
+class CodeBasedEvaluatorConfig(AWSProperty):
+    """
+    `CodeBasedEvaluatorConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-evaluator-codebasedevaluatorconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "LambdaConfig": (LambdaEvaluatorConfig, True),
+    }
+
+
 class InferenceConfiguration(AWSProperty):
     """
     `InferenceConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-evaluator-inferenceconfiguration.html>`__
@@ -210,7 +245,8 @@ class EvaluatorConfig(AWSProperty):
     """
 
     props: PropsDictType = {
-        "LlmAsAJudge": (LlmAsAJudgeEvaluatorConfig, True),
+        "CodeBased": (CodeBasedEvaluatorConfig, False),
+        "LlmAsAJudge": (LlmAsAJudgeEvaluatorConfig, False),
     }
 
 
@@ -386,9 +422,9 @@ class Gateway(AWSObject):
     }
 
 
-class ApiKeyCredentialProvider(AWSProperty):
+class ApiKeyCredentialProviderProperty(AWSProperty):
     """
-    `ApiKeyCredentialProvider <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gatewaytarget-apikeycredentialprovider.html>`__
+    `ApiKeyCredentialProviderProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gatewaytarget-apikeycredentialprovider.html>`__
     """
 
     props: PropsDictType = {
@@ -419,7 +455,7 @@ class CredentialProvider(AWSProperty):
     """
 
     props: PropsDictType = {
-        "ApiKeyCredentialProvider": (ApiKeyCredentialProvider, False),
+        "ApiKeyCredentialProvider": (ApiKeyCredentialProviderProperty, False),
         "OauthCredentialProvider": (OAuthCredentialProvider, False),
     }
 
@@ -646,6 +682,7 @@ class EpisodicOverrideReflectionConfigurationInput(AWSProperty):
     props: PropsDictType = {
         "AppendToPrompt": (str, True),
         "ModelId": (str, True),
+        "NamespaceTemplates": ([str], False),
         "Namespaces": ([str], False),
     }
 
@@ -838,6 +875,7 @@ class CustomMemoryStrategy(AWSProperty):
         "CreatedAt": (str, False),
         "Description": (str, False),
         "Name": (str, True),
+        "NamespaceTemplates": ([str], False),
         "Namespaces": ([str], False),
         "Status": (str, False),
         "StrategyId": (str, False),
@@ -852,7 +890,8 @@ class EpisodicReflectionConfigurationInput(AWSProperty):
     """
 
     props: PropsDictType = {
-        "Namespaces": ([str], True),
+        "NamespaceTemplates": ([str], False),
+        "Namespaces": ([str], False),
     }
 
 
@@ -865,6 +904,7 @@ class EpisodicMemoryStrategy(AWSProperty):
         "CreatedAt": (str, False),
         "Description": (str, False),
         "Name": (str, True),
+        "NamespaceTemplates": ([str], False),
         "Namespaces": ([str], False),
         "ReflectionConfiguration": (EpisodicReflectionConfigurationInput, False),
         "Status": (str, False),
@@ -883,6 +923,7 @@ class SemanticMemoryStrategy(AWSProperty):
         "CreatedAt": (str, False),
         "Description": (str, False),
         "Name": (str, True),
+        "NamespaceTemplates": ([str], False),
         "Namespaces": ([str], False),
         "Status": (str, False),
         "StrategyId": (str, False),
@@ -900,6 +941,7 @@ class SummaryMemoryStrategy(AWSProperty):
         "CreatedAt": (str, False),
         "Description": (str, False),
         "Name": (str, True),
+        "NamespaceTemplates": ([str], False),
         "Namespaces": ([str], False),
         "Status": (str, False),
         "StrategyId": (str, False),
@@ -917,6 +959,7 @@ class UserPreferenceMemoryStrategy(AWSProperty):
         "CreatedAt": (str, False),
         "Description": (str, False),
         "Name": (str, True),
+        "NamespaceTemplates": ([str], False),
         "Namespaces": ([str], False),
         "Status": (str, False),
         "StrategyId": (str, False),
@@ -1281,6 +1324,16 @@ class WorkloadIdentity(AWSObject):
         "AllowedResourceOauth2ReturnUrls": ([str], False),
         "Name": (str, True),
         "Tags": (Tags, False),
+    }
+
+
+class ApiKeySecretArn(AWSProperty):
+    """
+    `ApiKeySecretArn <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-apikeycredentialprovider-apikeysecretarn.html>`__
+    """
+
+    props: PropsDictType = {
+        "SecretArn": (str, True),
     }
 
 

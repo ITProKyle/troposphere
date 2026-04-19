@@ -859,6 +859,29 @@ class SegmentGroup(AWSProperty):
     }
 
 
+class SortAttribute(AWSProperty):
+    """
+    `SortAttribute <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-segmentdefinition-sortattribute.html>`__
+    """
+
+    props: PropsDictType = {
+        "DataType": (str, False),
+        "Name": (str, True),
+        "Order": (str, True),
+        "Type": (str, False),
+    }
+
+
+class SegmentSort(AWSProperty):
+    """
+    `SegmentSort <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-segmentdefinition-segmentsort.html>`__
+    """
+
+    props: PropsDictType = {
+        "Attributes": ([SortAttribute], True),
+    }
+
+
 class SegmentDefinition(AWSObject):
     """
     `SegmentDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-segmentdefinition.html>`__
@@ -872,6 +895,7 @@ class SegmentDefinition(AWSObject):
         "DomainName": (str, True),
         "SegmentDefinitionName": (str, True),
         "SegmentGroups": (SegmentGroup, False),
+        "SegmentSort": (SegmentSort, False),
         "SegmentSqlQuery": (str, False),
         "Tags": (Tags, False),
     }

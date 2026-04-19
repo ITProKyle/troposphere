@@ -26,6 +26,18 @@ class Farm(AWSObject):
     }
 
 
+class CustomerManagedAutoScalingConfiguration(AWSProperty):
+    """
+    `CustomerManagedAutoScalingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-customermanagedautoscalingconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "ScaleOutWorkersPerMinute": (integer, False),
+        "StandbyWorkerCount": (integer, False),
+        "WorkerIdleDurationSeconds": (integer, False),
+    }
+
+
 class AcceleratorCountRange(AWSProperty):
     """
     `AcceleratorCountRange <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-acceleratorcountrange.html>`__
@@ -117,10 +129,23 @@ class CustomerManagedFleetConfiguration(AWSProperty):
     """
 
     props: PropsDictType = {
+        "AutoScalingConfiguration": (CustomerManagedAutoScalingConfiguration, False),
         "Mode": (str, True),
         "StorageProfileId": (str, False),
         "TagPropagationMode": (str, False),
         "WorkerCapabilities": (CustomerManagedWorkerCapabilities, True),
+    }
+
+
+class ServiceManagedEc2AutoScalingConfiguration(AWSProperty):
+    """
+    `ServiceManagedEc2AutoScalingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-servicemanagedec2autoscalingconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "ScaleOutWorkersPerMinute": (integer, False),
+        "StandbyWorkerCount": (integer, False),
+        "WorkerIdleDurationSeconds": (integer, False),
     }
 
 
@@ -203,6 +228,7 @@ class ServiceManagedEc2FleetConfiguration(AWSProperty):
     """
 
     props: PropsDictType = {
+        "AutoScalingConfiguration": (ServiceManagedEc2AutoScalingConfiguration, False),
         "InstanceCapabilities": (ServiceManagedEc2InstanceCapabilities, True),
         "InstanceMarketOptions": (ServiceManagedEc2InstanceMarketOptions, True),
         "StorageProfileId": (str, False),

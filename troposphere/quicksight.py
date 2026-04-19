@@ -8798,6 +8798,16 @@ class S3Parameters(AWSProperty):
     }
 
 
+class S3TablesParameters(AWSProperty):
+    """
+    `S3TablesParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-s3tablesparameters.html>`__
+    """
+
+    props: PropsDictType = {
+        "TableBucketArn": (str, False),
+    }
+
+
 class VpcConnectionProperties(AWSProperty):
     """
     `VpcConnectionProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-vpcconnectionproperties.html>`__
@@ -8919,6 +8929,7 @@ class DataSourceParameters(AWSProperty):
         "RdsParameters": (RdsParameters, False),
         "RedshiftParameters": (RedshiftParameters, False),
         "S3Parameters": (S3Parameters, False),
+        "S3TablesParameters": (S3TablesParameters, False),
         "SnowflakeParameters": (SnowflakeParameters, False),
         "SparkParameters": (SparkParameters, False),
         "SqlServerParameters": (SqlServerParameters, False),

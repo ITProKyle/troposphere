@@ -86,10 +86,6 @@ patches = [
     # Spec 242.0.0 introduced EMRConfiguration to replace Configuration but left both in.
     # Revert back to Configuration for backwards compatibility
     {
-        "op": "remove",
-        "path": "/PropertyTypes/AWS::EMR::Cluster.EMRConfiguration",
-    },
-    {
         "op": "replace",
         "path": "/PropertyTypes/AWS::EMR::Cluster.InstanceGroupConfig/Properties/Configurations/ItemType",
         "value": "Configuration",

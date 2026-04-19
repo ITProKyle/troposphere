@@ -1820,7 +1820,7 @@ class MlflowTrackingServer(AWSObject):
 
 class RepositoryAuthConfig(AWSProperty):
     """
-    `RepositoryAuthConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-containerdefinition-imageconfig-repositoryauthconfig.html>`__
+    `RepositoryAuthConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-repositoryauthconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -1830,7 +1830,7 @@ class RepositoryAuthConfig(AWSProperty):
 
 class ImageConfig(AWSProperty):
     """
-    `ImageConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-containerdefinition-imageconfig.html>`__
+    `ImageConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-imageconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -1874,7 +1874,7 @@ class ModelDataSource(AWSProperty):
 
 class MultiModelConfig(AWSProperty):
     """
-    `MultiModelConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-containerdefinition-multimodelconfig.html>`__
+    `MultiModelConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-multimodelconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -3654,17 +3654,6 @@ class Workteam(AWSObject):
     }
 
 
-class AdditionalModelDataSource(AWSProperty):
-    """
-    `AdditionalModelDataSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-additionalmodeldatasource.html>`__
-    """
-
-    props: PropsDictType = {
-        "ChannelName": (str, True),
-        "S3DataSource": (S3DataSource, True),
-    }
-
-
 class AlarmDetails(AWSProperty):
     """
     `AlarmDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-alarmdetails.html>`__
@@ -3712,7 +3701,7 @@ class EndpointMetadata(AWSProperty):
 
 class HubAccessConfig(AWSProperty):
     """
-    `HubAccessConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-s3datasource-hubaccessconfig.html>`__
+    `HubAccessConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-hubaccessconfig.html>`__
     """
 
     props: PropsDictType = {

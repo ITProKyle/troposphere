@@ -10,12 +10,6 @@ patches = [
         "path": "/ResourceTypes/AWS::ElasticLoadBalancing::LoadBalancer/Properties/Listeners/ItemType",
         "value": "Listener",
     },
-    # Prevent mapping List of Json to Tags. Make it a List of dict instead.
-    {
-        "op": "replace",
-        "path": "/PropertyTypes/AWS::ElasticLoadBalancing::LoadBalancer.Policies/Properties/Attributes/PrimitiveItemType",
-        "value": "dict",
-    },
     # backward compatibility
     {
         "op": "move",
