@@ -29,8 +29,8 @@ pre-commit>=2.16
 pytest>=4.1
 pytest-cov>=2.6
 
-black==24.4.2
+black==26.3.1
 build==0.5.1
 click==8.0.4
-isort==5.13.2
+isort==8.0.1
 tox==3.23.1
