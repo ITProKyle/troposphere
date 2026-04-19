@@ -41,7 +41,7 @@ jobs:
             ${{ runner.os }}-pip-${{ matrix.python-version }}
       - name: Install Python Dependencies
         run: |
-          uv pip install --system -r requirements.txt
+          uv pip install --system -r requirements-dev.txt
       - name: Install Node Dependencies
         run: npm install
       - name: Run Lints
@@ -63,7 +63,7 @@ jobs:
           python-version: "3.14"
       - name: Install Python Dependencies
         run: |
-          uv pip install --system -r requirements.txt
+          uv pip install --system -r requirements-dev.txt
       - name: Ensure spec generation and formatting fixups are clean
         run: |
           make spec
