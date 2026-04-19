@@ -57,19 +57,19 @@ lint-pyright: ## run pyright
 
 release-test:
 	python -m build --sdist --wheel .
-	make release-test-39
+	make release-test-310
 
-p39dir=p39
-release-test-39:
-	@echo "Python 3.9 test"
+p310dir=p310
+release-test-310:
+	@echo "Python 3.10 test"
 	ver=`python -c 'import troposphere; print(troposphere.__version__)'` && \
-	rm -rf ${p39dir} && \
-	python3.9 -m venv ${p39dir} && \
-	. ${p39dir}/bin/activate && \
-	pip3.9 install dist/troposphere-$${ver}-py3-none-any.whl && \
+	rm -rf ${p310dir} && \
+	python3.10 -m venv ${p310dir} && \
+	. ${p310dir}/bin/activate && \
+	pip3.10 install dist/troposphere-$${ver}-py3-none-any.whl && \
 	python -c 'import troposphere; print(troposphere.__version__)' && \
 	deactivate && \
-	rm -rf ${p39dir}
+	rm -rf ${p310dir}
 
 SPEC_VERSION?=latest
 spec:
