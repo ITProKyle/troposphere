@@ -242,6 +242,18 @@ class MetricFilter(AWSObject):
     }
 
 
+class QueryParameter(AWSProperty):
+    """
+    `QueryParameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-logs-querydefinition-queryparameter.html>`__
+    """
+
+    props: PropsDictType = {
+        "DefaultValue": (str, False),
+        "Description": (str, False),
+        "Name": (str, True),
+    }
+
+
 class QueryDefinition(AWSObject):
     """
     `QueryDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-querydefinition.html>`__
@@ -252,6 +264,7 @@ class QueryDefinition(AWSObject):
     props: PropsDictType = {
         "LogGroupNames": ([str], False),
         "Name": (str, True),
+        "Parameters": ([QueryParameter], False),
         "QueryLanguage": (str, False),
         "QueryString": (str, True),
     }

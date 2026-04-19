@@ -435,6 +435,17 @@ class ApiKeyCredentialProviderProperty(AWSProperty):
     }
 
 
+class IamCredentialProvider(AWSProperty):
+    """
+    `IamCredentialProvider <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gatewaytarget-iamcredentialprovider.html>`__
+    """
+
+    props: PropsDictType = {
+        "Region": (str, False),
+        "Service": (str, True),
+    }
+
+
 class OAuthCredentialProvider(AWSProperty):
     """
     `OAuthCredentialProvider <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gatewaytarget-oauthcredentialprovider.html>`__
@@ -456,6 +467,7 @@ class CredentialProvider(AWSProperty):
 
     props: PropsDictType = {
         "ApiKeyCredentialProvider": (ApiKeyCredentialProviderProperty, False),
+        "IamCredentialProvider": (IamCredentialProvider, False),
         "OauthCredentialProvider": (OAuthCredentialProvider, False),
     }
 
@@ -1043,6 +1055,167 @@ class Memory(AWSObject):
     }
 
 
+class AtlassianOauth2ProviderConfigInput(AWSProperty):
+    """
+    `AtlassianOauth2ProviderConfigInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-oauth2credentialprovider-atlassianoauth2providerconfiginput.html>`__
+    """
+
+    props: PropsDictType = {
+        "ClientId": (str, True),
+        "ClientSecret": (str, True),
+    }
+
+
+class Oauth2AuthorizationServerMetadata(AWSProperty):
+    """
+    `Oauth2AuthorizationServerMetadata <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-oauth2credentialprovider-oauth2authorizationservermetadata.html>`__
+    """
+
+    props: PropsDictType = {
+        "AuthorizationEndpoint": (str, True),
+        "Issuer": (str, True),
+        "ResponseTypes": ([str], False),
+        "TokenEndpoint": (str, True),
+    }
+
+
+class Oauth2Discovery(AWSProperty):
+    """
+    `Oauth2Discovery <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-oauth2credentialprovider-oauth2discovery.html>`__
+    """
+
+    props: PropsDictType = {
+        "AuthorizationServerMetadata": (Oauth2AuthorizationServerMetadata, False),
+        "DiscoveryUrl": (str, False),
+    }
+
+
+class CustomOauth2ProviderConfigInput(AWSProperty):
+    """
+    `CustomOauth2ProviderConfigInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-oauth2credentialprovider-customoauth2providerconfiginput.html>`__
+    """
+
+    props: PropsDictType = {
+        "ClientId": (str, True),
+        "ClientSecret": (str, True),
+        "OauthDiscovery": (Oauth2Discovery, True),
+    }
+
+
+class GithubOauth2ProviderConfigInput(AWSProperty):
+    """
+    `GithubOauth2ProviderConfigInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-oauth2credentialprovider-githuboauth2providerconfiginput.html>`__
+    """
+
+    props: PropsDictType = {
+        "ClientId": (str, True),
+        "ClientSecret": (str, True),
+    }
+
+
+class GoogleOauth2ProviderConfigInput(AWSProperty):
+    """
+    `GoogleOauth2ProviderConfigInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-oauth2credentialprovider-googleoauth2providerconfiginput.html>`__
+    """
+
+    props: PropsDictType = {
+        "ClientId": (str, True),
+        "ClientSecret": (str, True),
+    }
+
+
+class IncludedOauth2ProviderConfigInput(AWSProperty):
+    """
+    `IncludedOauth2ProviderConfigInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-oauth2credentialprovider-includedoauth2providerconfiginput.html>`__
+    """
+
+    props: PropsDictType = {
+        "AuthorizationEndpoint": (str, False),
+        "ClientId": (str, True),
+        "ClientSecret": (str, True),
+        "Issuer": (str, False),
+        "TokenEndpoint": (str, False),
+    }
+
+
+class LinkedinOauth2ProviderConfigInput(AWSProperty):
+    """
+    `LinkedinOauth2ProviderConfigInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-oauth2credentialprovider-linkedinoauth2providerconfiginput.html>`__
+    """
+
+    props: PropsDictType = {
+        "ClientId": (str, True),
+        "ClientSecret": (str, True),
+    }
+
+
+class MicrosoftOauth2ProviderConfigInput(AWSProperty):
+    """
+    `MicrosoftOauth2ProviderConfigInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-oauth2credentialprovider-microsoftoauth2providerconfiginput.html>`__
+    """
+
+    props: PropsDictType = {
+        "ClientId": (str, True),
+        "ClientSecret": (str, True),
+        "TenantId": (str, False),
+    }
+
+
+class SalesforceOauth2ProviderConfigInput(AWSProperty):
+    """
+    `SalesforceOauth2ProviderConfigInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-oauth2credentialprovider-salesforceoauth2providerconfiginput.html>`__
+    """
+
+    props: PropsDictType = {
+        "ClientId": (str, True),
+        "ClientSecret": (str, True),
+    }
+
+
+class SlackOauth2ProviderConfigInput(AWSProperty):
+    """
+    `SlackOauth2ProviderConfigInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-oauth2credentialprovider-slackoauth2providerconfiginput.html>`__
+    """
+
+    props: PropsDictType = {
+        "ClientId": (str, True),
+        "ClientSecret": (str, True),
+    }
+
+
+class Oauth2ProviderConfigInput(AWSProperty):
+    """
+    `Oauth2ProviderConfigInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-oauth2credentialprovider-oauth2providerconfiginput.html>`__
+    """
+
+    props: PropsDictType = {
+        "AtlassianOauth2ProviderConfig": (AtlassianOauth2ProviderConfigInput, False),
+        "CustomOauth2ProviderConfig": (CustomOauth2ProviderConfigInput, False),
+        "GithubOauth2ProviderConfig": (GithubOauth2ProviderConfigInput, False),
+        "GoogleOauth2ProviderConfig": (GoogleOauth2ProviderConfigInput, False),
+        "IncludedOauth2ProviderConfig": (IncludedOauth2ProviderConfigInput, False),
+        "LinkedinOauth2ProviderConfig": (LinkedinOauth2ProviderConfigInput, False),
+        "MicrosoftOauth2ProviderConfig": (MicrosoftOauth2ProviderConfigInput, False),
+        "SalesforceOauth2ProviderConfig": (SalesforceOauth2ProviderConfigInput, False),
+        "SlackOauth2ProviderConfig": (SlackOauth2ProviderConfigInput, False),
+    }
+
+
+class OAuth2CredentialProvider(AWSObject):
+    """
+    `OAuth2CredentialProvider <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-oauth2credentialprovider.html>`__
+    """
+
+    resource_type = "AWS::BedrockAgentCore::OAuth2CredentialProvider"
+
+    props: PropsDictType = {
+        "CredentialProviderVendor": (str, True),
+        "Name": (str, True),
+        "Oauth2ProviderConfigInput": (Oauth2ProviderConfigInput, False),
+        "Tags": (Tags, False),
+    }
+
+
 class CloudWatchLogsInputConfig(AWSProperty):
     """
     `CloudWatchLogsInputConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-onlineevaluationconfig-cloudwatchlogsinputconfig.html>`__
@@ -1243,6 +1416,26 @@ class AgentRuntimeArtifact(AWSProperty):
     }
 
 
+class SessionStorageConfiguration(AWSProperty):
+    """
+    `SessionStorageConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-runtime-sessionstorageconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "MountPath": (str, True),
+    }
+
+
+class FilesystemConfiguration(AWSProperty):
+    """
+    `FilesystemConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-runtime-filesystemconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "SessionStorage": (SessionStorageConfiguration, False),
+    }
+
+
 class LifecycleConfiguration(AWSProperty):
     """
     `LifecycleConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-runtime-lifecycleconfiguration.html>`__
@@ -1288,6 +1481,7 @@ class Runtime(AWSObject):
         "AuthorizerConfiguration": (AuthorizerConfiguration, False),
         "Description": (str, False),
         "EnvironmentVariables": (dict, False),
+        "FilesystemConfigurations": ([FilesystemConfiguration], False),
         "LifecycleConfiguration": (LifecycleConfiguration, False),
         "NetworkConfiguration": (NetworkConfiguration, True),
         "ProtocolConfiguration": (str, False),
@@ -1337,6 +1531,16 @@ class ApiKeySecretArn(AWSProperty):
     }
 
 
+class ClientSecretArn(AWSProperty):
+    """
+    `ClientSecretArn <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-oauth2credentialprovider-clientsecretarn.html>`__
+    """
+
+    props: PropsDictType = {
+        "SecretArn": (str, True),
+    }
+
+
 class CloudWatchOutputConfig(AWSProperty):
     """
     `CloudWatchOutputConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-onlineevaluationconfig-cloudwatchoutputconfig.html>`__
@@ -1344,6 +1548,17 @@ class CloudWatchOutputConfig(AWSProperty):
 
     props: PropsDictType = {
         "LogGroupName": (str, False),
+    }
+
+
+class Oauth2ProviderConfigOutput(AWSProperty):
+    """
+    `Oauth2ProviderConfigOutput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-oauth2credentialprovider-oauth2providerconfigoutput.html>`__
+    """
+
+    props: PropsDictType = {
+        "ClientId": (str, False),
+        "OauthDiscovery": (Oauth2Discovery, False),
     }
 
 

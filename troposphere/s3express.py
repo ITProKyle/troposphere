@@ -144,6 +144,18 @@ class LifecycleConfiguration(AWSProperty):
     }
 
 
+class MetricsConfiguration(AWSProperty):
+    """
+    `MetricsConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3express-directorybucket-metricsconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "AccessPointArn": (str, False),
+        "Id": (str, False),
+        "Prefix": (str, False),
+    }
+
+
 class DirectoryBucket(AWSObject):
     """
     `DirectoryBucket <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3express-directorybucket.html>`__
@@ -157,5 +169,6 @@ class DirectoryBucket(AWSObject):
         "DataRedundancy": (str, True),
         "LifecycleConfiguration": (LifecycleConfiguration, False),
         "LocationName": (str, True),
+        "MetricsConfigurations": ([MetricsConfiguration], False),
         "Tags": (Tags, False),
     }

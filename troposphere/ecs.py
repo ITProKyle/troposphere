@@ -756,6 +756,19 @@ class Host(AWSProperty):
     }
 
 
+class S3FilesVolumeConfiguration(AWSProperty):
+    """
+    `S3FilesVolumeConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-s3filesvolumeconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "AccessPointArn": (str, False),
+        "FileSystemArn": (str, True),
+        "RootDirectory": (str, False),
+        "TransitEncryptionPort": (integer, False),
+    }
+
+
 class Volume(AWSProperty):
     """
     `Volume <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-volume.html>`__
@@ -771,6 +784,7 @@ class Volume(AWSProperty):
         ),
         "Host": (Host, False),
         "Name": (str, False),
+        "S3FilesVolumeConfiguration": (S3FilesVolumeConfiguration, False),
     }
 
 
