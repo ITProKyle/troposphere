@@ -1617,6 +1617,14 @@ class Hdr10Settings(AWSProperty):
     }
 
 
+class Hlg2020Settings(AWSProperty):
+    """
+    `Hlg2020Settings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-hlg2020settings.html>`__
+    """
+
+    props: PropsDictType = {}
+
+
 class Rec601Settings(AWSProperty):
     """
     `Rec601Settings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-rec601settings.html>`__
@@ -1641,6 +1649,7 @@ class Av1ColorSpaceSettings(AWSProperty):
     props: PropsDictType = {
         "ColorSpacePassthroughSettings": (ColorSpacePassthroughSettings, False),
         "Hdr10Settings": (Hdr10Settings, False),
+        "Hlg2020Settings": (Hlg2020Settings, False),
         "Rec601Settings": (Rec601Settings, False),
         "Rec709Settings": (Rec709Settings, False),
     }
@@ -1804,14 +1813,6 @@ class H264Settings(AWSProperty):
 class DolbyVision81Settings(AWSProperty):
     """
     `DolbyVision81Settings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-dolbyvision81settings.html>`__
-    """
-
-    props: PropsDictType = {}
-
-
-class Hlg2020Settings(AWSProperty):
-    """
-    `Hlg2020Settings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-hlg2020settings.html>`__
     """
 
     props: PropsDictType = {}

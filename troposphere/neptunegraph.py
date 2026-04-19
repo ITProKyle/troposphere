@@ -38,6 +38,20 @@ class Graph(AWSObject):
     }
 
 
+class GraphSnapshot(AWSObject):
+    """
+    `GraphSnapshot <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptunegraph-graphsnapshot.html>`__
+    """
+
+    resource_type = "AWS::NeptuneGraph::GraphSnapshot"
+
+    props: PropsDictType = {
+        "GraphIdentifier": (str, False),
+        "SnapshotName": (str, True),
+        "Tags": (Tags, False),
+    }
+
+
 class PrivateGraphEndpoint(AWSObject):
     """
     `PrivateGraphEndpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptunegraph-privategraphendpoint.html>`__

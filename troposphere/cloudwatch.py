@@ -17,6 +17,28 @@ from .validators.cloudwatch import (
 )
 
 
+class AlarmPromQLCriteria(AWSProperty):
+    """
+    `AlarmPromQLCriteria <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-alarm-alarmpromqlcriteria.html>`__
+    """
+
+    props: PropsDictType = {
+        "PendingPeriod": (integer, False),
+        "Query": (str, False),
+        "RecoveryPeriod": (integer, False),
+    }
+
+
+class EvaluationCriteria(AWSProperty):
+    """
+    `EvaluationCriteria <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-alarm-evaluationcriteria.html>`__
+    """
+
+    props: PropsDictType = {
+        "PromQLCriteria": (AlarmPromQLCriteria, False),
+    }
+
+
 class MetricDimension(AWSProperty):
     """
     `MetricDimension <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-alarm-dimension.html>`__
@@ -85,6 +107,8 @@ class Alarm(AWSObject):
         "DatapointsToAlarm": (integer, False),
         "Dimensions": ([MetricDimension], False),
         "EvaluateLowSampleCountPercentile": (str, False),
+        "EvaluationCriteria": (EvaluationCriteria, False),
+        "EvaluationInterval": (integer, False),
         "EvaluationPeriods": (integer, False),
         "ExtendedStatistic": (str, False),
         "InsufficientDataActions": ([str], False),

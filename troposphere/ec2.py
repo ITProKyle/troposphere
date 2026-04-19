@@ -286,7 +286,7 @@ class ClientVpnRoute(AWSObject):
         "ClientVpnEndpointId": (str, True),
         "Description": (str, False),
         "DestinationCidrBlock": (str, True),
-        "TargetVpcSubnetId": (str, True),
+        "TargetVpcSubnetId": (str, False),
     }
 
 
@@ -299,7 +299,7 @@ class ClientVpnTargetNetworkAssociation(AWSObject):
 
     props: PropsDictType = {
         "ClientVpnEndpointId": (str, True),
-        "SubnetId": (str, True),
+        "SubnetId": (str, False),
     }
 
 
@@ -4121,6 +4121,18 @@ class State(AWSProperty):
     props: PropsDictType = {
         "Code": (str, False),
         "Name": (str, False),
+    }
+
+
+class TransitGatewayConfiguration(AWSProperty):
+    """
+    `TransitGatewayConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-transitgatewayconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "AvailabilityZoneIds": ([str], False),
+        "AvailabilityZones": ([str], False),
+        "TransitGatewayId": (str, True),
     }
 
 
